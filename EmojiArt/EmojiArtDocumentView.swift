@@ -10,6 +10,8 @@ import SwiftUI
 struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument
     
+    @State var selectedEmojis = Set<EmojiArtModel.Emoji>()
+    
     let defaultEmojiFontSize: CGFloat = 40
     
     var body: some View {
@@ -32,10 +34,20 @@ struct EmojiArtDocumentView: View {
                     ProgressView().scaleEffect(2)
                 } else {
                     ForEach(document.emojis) { emoji in
-                        Text(emoji.text)
-                            .font(.system(size: fontSize(for: emoji)))
-                            .scaleEffect(zoomScale)
-                            .position(position(for: emoji, in: geometry))
+                        if selectedEmojis.contains(emoji) {
+                                Text(emoji.text)
+                                    .font(.system(size: fontSize(for: emoji)))
+                                    .background(Color.blue.opacity(0.2))
+                                    .frame(width: 100, height: 10)
+                                    .scaleEffect(zoomScale)
+                                    .position(position(for: emoji, in: geometry))
+                                    
+                        } else {
+                            Text(emoji.text)
+                                .font(.system(size: fontSize(for: emoji)))
+                                .scaleEffect(zoomScale)
+                                .position(position(for: emoji, in: geometry))
+                        }
                     }
                 }
             }
@@ -45,7 +57,8 @@ struct EmojiArtDocumentView: View {
                 drop(providers: providers, at: location, in: geometry)
             }
             // You shouldn't put two gestures
-            .gesture(panGesture().simultaneously(with: zoomGesture()))
+            .gesture(panGesture().simultaneously(with: zoomGesture()).exclusively(before: tapToSelectEmoji(in: geometry)))
+            //.gesture(tapToSelectEmoji(in: geometry))
         }
         
     }
@@ -143,6 +156,30 @@ struct EmojiArtDocumentView: View {
                     zoomToFit(document.backgroundImage, in: size)
                 }
             }
+    }
+    
+    private func tapToSelectEmoji(in geometry: GeometryProxy) -> some Gesture {
+        return DragGesture(minimumDistance: 0)
+            .onEnded { value in
+                selectEmoji(position: value.location, in: geometry)
+            }
+    }
+    
+    private func selectEmoji(position: CGPoint, in geometry: GeometryProxy) {
+        let emojiLocation = convertToEmojiCoordinates(position, in: geometry)
+        print("actual emoji location: \(emojiLocation)")
+        for emoji in document.emojis {
+            print("coordinates of emoji \(emoji.x), \(emoji.y)")
+            if abs(emoji.x - Int(emojiLocation.x)) <= 20 * Int(zoomScale) && abs(emoji.y - Int(emojiLocation.y)) <= 20 * Int(zoomScale) {
+                print("emoji \(emoji) tapped")
+                
+                if selectedEmojis.contains(emoji) {
+                    selectedEmojis.remove(emoji)
+                } else {
+                    selectedEmojis.update(with: emoji)
+                }
+            }
+        }
     }
     
     private func zoomToFit(_ image: UIImage?, in size: CGSize) {
