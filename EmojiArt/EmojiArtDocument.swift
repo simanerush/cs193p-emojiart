@@ -29,6 +29,12 @@ class EmojiArtDocument: ObservableObject {
     
     //When background in a Model changes, we have to set this property
     @Published var backgroundImage: UIImage?
+    @Published var backgroundImageFetchStatus = BackgroundImageFetchStatus.idle
+    
+    enum BackgroundImageFetchStatus {
+        case idle
+        case fetching
+    }
     
     private func fetchBackgroundImageDataIfNecessary() {
         backgroundImage = nil
@@ -37,12 +43,14 @@ class EmojiArtDocument: ObservableObject {
             // Fetch the url
             // Goes to internet and fetches it, blocking the main thread
             // Make the code multithreaded
+            backgroundImageFetchStatus = .fetching
             DispatchQueue.global(qos: .userInitiated).async {
                 let imageData = try? Data(contentsOf: url)
                 // When it gets the result, the UI changes happen in the main thread
                 DispatchQueue.main.async { [weak self] in // Weak doesn't force self to keep itself in the heap. If no one else keeps the self, it is going to be nil.
                     // If the mage that was jsut loaded matches the current desired image
                     if self?.emojiArt.background == EmojiArtModel.Background.url(url) {
+                        self?.backgroundImageFetchStatus = .idle
                         if imageData != nil {
                             self?.backgroundImage = UIImage(data: imageData!)
                         }
