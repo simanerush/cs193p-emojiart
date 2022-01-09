@@ -175,11 +175,15 @@ struct EmojiArtDocumentView: View {
                 
                 if selectedEmojis.contains(emoji) {
                     selectedEmojis.remove(emoji)
+                    return
                 } else {
                     selectedEmojis.update(with: emoji)
+                    return
                 }
             }
         }
+        
+        selectedEmojis = []
     }
     
     private func zoomToFit(_ image: UIImage?, in size: CGSize) {
