@@ -179,11 +179,8 @@ struct EmojiArtDocumentView: View {
     
     private func selectEmoji(position: CGPoint, in geometry: GeometryProxy) {
         let emojiLocation = convertToEmojiCoordinates(position, in: geometry)
-        print("actual emoji location: \(emojiLocation)")
         for emoji in document.emojis {
-            print("coordinates of emoji \(emoji.x), \(emoji.y)")
             if abs(emoji.x - Int(emojiLocation.x)) <= 20 * Int(zoomScale) && abs(emoji.y - Int(emojiLocation.y)) <= 20 * Int(zoomScale) {
-                print("emoji \(emoji) tapped")
                 
                 if selectedEmojis.contains(emoji) {
                     selectedEmojis.remove(emoji)
