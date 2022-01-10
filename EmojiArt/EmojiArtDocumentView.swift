@@ -124,10 +124,22 @@ struct EmojiArtDocumentView: View {
     private func panGesture() -> some Gesture {
         DragGesture()
             .updating($gesturePanOffset) { latestDragGestureValue, gesturePanOffset, _ in
-                gesturePanOffset = latestDragGestureValue.translation / zoomScale
+                if selectedEmojis.isEmpty {
+                    gesturePanOffset = latestDragGestureValue.translation / zoomScale
+                }
+                
             }
             .onEnded { finalDragGestureValue in
-                steadyStatePanOffset = steadyStatePanOffset + (finalDragGestureValue.translation / zoomScale)
+                if selectedEmojis.isEmpty {
+                    steadyStatePanOffset = steadyStatePanOffset + (finalDragGestureValue.translation / zoomScale)
+                } else {
+                    for emoji in selectedEmojis {
+                        withAnimation {
+                            document.moveEmoji(emoji, by: finalDragGestureValue.distance)
+                        }
+                       
+                    }
+                }
             }
     }
     
