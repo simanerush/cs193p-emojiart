@@ -89,6 +89,16 @@ extension String {
     }
 }
 
+extension String {
+    var removingDuplicateCharacters: String {
+        reduce(into: "") { sofar, element in
+            if !sofar.contains(element) {
+                sofar.append(element)
+            }
+        }
+    }
+}
+
 extension Character {
     var isEmoji: Bool {
         // Swift does not have a way to ask if a Character isEmoji
