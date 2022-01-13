@@ -42,7 +42,7 @@ struct PaletteManager: View {
                     EditButton()
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if presentationMode.wrappedValue.isPresented {
+                    if presentationMode.wrappedValue.isPresented, UIDevice.current.userInterfaceIdiom != .pad {
                         Button("Close") {
                             presentationMode.wrappedValue.dismiss()
                         }
