@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class EmojiArtDocument: ObservableObject {
     
@@ -79,6 +80,8 @@ class EmojiArtDocument: ObservableObject {
         case failed(URL)
     }
     
+    private var backgroundImageFetchCancellable: AnyCancellable?
+    
     private func fetchBackgroundImageDataIfNecessary() {
         backgroundImage = nil
         switch emojiArt.background {
@@ -87,22 +90,46 @@ class EmojiArtDocument: ObservableObject {
             // Goes to internet and fetches it, blocking the main thread
             // Make the code multithreaded
             backgroundImageFetchStatus = .fetching
-            DispatchQueue.global(qos: .userInitiated).async {
-                let imageData = try? Data(contentsOf: url)
-                // When it gets the result, the UI changes happen in the main thread
-                DispatchQueue.main.async { [weak self] in // Weak doesn't force self to keep itself in the heap. If no one else keeps the self, it is going to be nil.
-                    // If the mage that was jsut loaded matches the current desired image
-                    if self?.emojiArt.background == EmojiArtModel.Background.url(url) {
-                        self?.backgroundImageFetchStatus = .idle
-                        if imageData != nil {
-                            self?.backgroundImage = UIImage(data: imageData!)
-                        }
-                        if self?.backgroundImage == nil {
-                            self?.backgroundImageFetchStatus = .failed(url)
-                        }
-                    }
+            
+            // Cancel any previous fetch
+            backgroundImageFetchCancellable?.cancel()
+            /// Publisher solution
+            
+            let session = URLSession.shared
+            let publisher = session.dataTaskPublisher(for: url)
+                .map { (data, urlResponse) in UIImage(data: data) }
+            // Replace the error with nil if reports error
+                .replaceError(with: nil)
+            // Subscriber schould receive the value on the main queue (UI update)
+                .receive(on: DispatchQueue.main)
+            
+            backgroundImageFetchCancellable = publisher
+//                .assign(to: \EmojiArtDocument.backgroundImage, on: self)
+                .sink { [weak self] image in
+                    self?.backgroundImage = image
+                    self?.backgroundImageFetchStatus = ( image != nil) ? .idle : .failed(url)
                 }
-            }
+            
+            
+            
+            
+            /// GCD Solution
+//            DispatchQueue.global(qos: .userInitiated).async {
+//                let imageData = try? Data(contentsOf: url)
+//                // When it gets the result, the UI changes happen in the main thread
+//                DispatchQueue.main.async { [weak self] in // Weak doesn't force self to keep itself in the heap. If no one else keeps the self, it is going to be nil.
+//                    // If the mage that was jsut loaded matches the current desired image
+//                    if self?.emojiArt.background == EmojiArtModel.Background.url(url) {
+//                        self?.backgroundImageFetchStatus = .idle
+//                        if imageData != nil {
+//                            self?.backgroundImage = UIImage(data: imageData!)
+//                        }
+//                        if self?.backgroundImage == nil {
+//                            self?.backgroundImageFetchStatus = .failed(url)
+//                        }
+//                    }
+//                }
+//            }
         case .imageData(let data):
             backgroundImage = UIImage(data: data)
         case .blank:

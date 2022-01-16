@@ -13,7 +13,9 @@ struct PaletteChooser: View {
     
     @EnvironmentObject var store: PaletteStore
     
-    @State private var chosenPaletteIndex = 0
+    // Rememeber which palette was chosen even when app quits
+    @SceneStorage("PaletteChooser.chosenPaletteIndex")
+    private var chosenPaletteIndex = 0
     
     var body: some View {
         let palette = store.palette(at: chosenPaletteIndex)
