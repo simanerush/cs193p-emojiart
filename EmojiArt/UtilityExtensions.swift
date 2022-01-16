@@ -75,19 +75,7 @@ extension Set where Element: Identifiable {
 // we want them to be "emoji only"
 // (thus isEmoji below)
 // and we don't want them to have repeated emojis
-// (thus withNoRepeatedCharacters below)
-
-extension String {
-    var withNoRepeatedCharacters: String {
-        var uniqued = ""
-        for ch in self {
-            if !uniqued.contains(ch) {
-                uniqued.append(ch)
-            }
-        }
-        return uniqued
-    }
-}
+// (thus withoutDuplicateCharacters below)
 
 extension String {
     var removingDuplicateCharacters: String {

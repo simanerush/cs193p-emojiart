@@ -14,10 +14,10 @@
 		23712FED27894E3100BE45ED /* EmojiArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23712FEC27894E3100BE45ED /* EmojiArtModel.swift */; };
 		23712FEF278955CD00BE45ED /* EmojiArtModel.Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23712FEE278955CD00BE45ED /* EmojiArtModel.Background.swift */; };
 		23712FF1278956D800BE45ED /* EmojiArtDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23712FF0278956D800BE45ED /* EmojiArtDocument.swift */; };
-		23712FF427895C7900BE45ED /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23712FF227895C7900BE45ED /* UtilityExtensions.swift */; };
 		2382F0F2278D139800701644 /* PaletteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382F0F1278D139800701644 /* PaletteStore.swift */; };
+		23D7CA7B2793C148009459F3 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7CA792793C148009459F3 /* UtilityExtensions.swift */; };
+		23D7CA7C2793C148009459F3 /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7CA7A2793C148009459F3 /* UtilityViews.swift */; };
 		23E92AD3278FA0B00040AE25 /* PaletteChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92AD2278FA0B00040AE25 /* PaletteChooser.swift */; };
-		23E92AD7278FA9510040AE25 /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92AD6278FA9510040AE25 /* UtilityViews.swift */; };
 		23E92AD9278FABD50040AE25 /* PaletteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92AD8278FABD50040AE25 /* PaletteEditor.swift */; };
 		23E92ADB278FB93F0040AE25 /* PaletteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92ADA278FB93F0040AE25 /* PaletteManager.swift */; };
 /* End PBXBuildFile section */
@@ -31,10 +31,11 @@
 		23712FEC27894E3100BE45ED /* EmojiArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtModel.swift; sourceTree = "<group>"; };
 		23712FEE278955CD00BE45ED /* EmojiArtModel.Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtModel.Background.swift; sourceTree = "<group>"; };
 		23712FF0278956D800BE45ED /* EmojiArtDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocument.swift; sourceTree = "<group>"; };
-		23712FF227895C7900BE45ED /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		2382F0F1278D139800701644 /* PaletteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteStore.swift; sourceTree = "<group>"; };
+		23D7CA782793B668009459F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		23D7CA792793C148009459F3 /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		23D7CA7A2793C148009459F3 /* UtilityViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
 		23E92AD2278FA0B00040AE25 /* PaletteChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteChooser.swift; sourceTree = "<group>"; };
-		23E92AD6278FA9510040AE25 /* UtilityViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
 		23E92AD8278FABD50040AE25 /* PaletteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteEditor.swift; sourceTree = "<group>"; };
 		23E92ADA278FB93F0040AE25 /* PaletteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -77,10 +78,11 @@
 				23712FE027894DBD00BE45ED /* EmojiArtDocumentView.swift */,
 				23712FEC27894E3100BE45ED /* EmojiArtModel.swift */,
 				23712FF0278956D800BE45ED /* EmojiArtDocument.swift */,
-				23712FF227895C7900BE45ED /* UtilityExtensions.swift */,
-				23E92AD6278FA9510040AE25 /* UtilityViews.swift */,
+				23D7CA792793C148009459F3 /* UtilityExtensions.swift */,
+				23D7CA7A2793C148009459F3 /* UtilityViews.swift */,
 				23712FEE278955CD00BE45ED /* EmojiArtModel.Background.swift */,
 				23712FE227894DBF00BE45ED /* Assets.xcassets */,
+				23D7CA782793B668009459F3 /* Info.plist */,
 				23712FE427894DBF00BE45ED /* Preview Content */,
 			);
 			path = EmojiArt;
@@ -167,13 +169,13 @@
 				2382F0F2278D139800701644 /* PaletteStore.swift in Sources */,
 				23E92ADB278FB93F0040AE25 /* PaletteManager.swift in Sources */,
 				23712FE127894DBD00BE45ED /* EmojiArtDocumentView.swift in Sources */,
+				23D7CA7C2793C148009459F3 /* UtilityViews.swift in Sources */,
 				23E92AD9278FABD50040AE25 /* PaletteEditor.swift in Sources */,
-				23E92AD7278FA9510040AE25 /* UtilityViews.swift in Sources */,
 				23712FDF27894DBD00BE45ED /* EmojiArtApp.swift in Sources */,
-				23712FF427895C7900BE45ED /* UtilityExtensions.swift in Sources */,
 				23712FF1278956D800BE45ED /* EmojiArtDocument.swift in Sources */,
 				23712FED27894E3100BE45ED /* EmojiArtModel.swift in Sources */,
 				23712FEF278955CD00BE45ED /* EmojiArtModel.Background.swift in Sources */,
+				23D7CA7B2793C148009459F3 /* UtilityExtensions.swift in Sources */,
 				23E92AD3278FA0B00040AE25 /* PaletteChooser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +310,7 @@
 				DEVELOPMENT_TEAM = 25H9B97SXR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmojiArt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -337,6 +340,7 @@
 				DEVELOPMENT_TEAM = 25H9B97SXR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmojiArt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
