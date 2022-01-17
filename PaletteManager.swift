@@ -36,17 +36,13 @@ struct PaletteManager: View {
             }
             .navigationTitle("Manage Palettes")
             .navigationBarTitleDisplayMode(.inline)
+            .dismissable {
+                presentationMode.wrappedValue.dismiss()
+            }
             // Both the list and the edit button are looking at the same editMode, because it's a local State var. editMode is changed by EditButton() that SwiftUI provides
             .toolbar {
                 ToolbarItem {
                     EditButton()
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    if presentationMode.wrappedValue.isPresented, UIDevice.current.userInterfaceIdiom != .pad {
-                        Button("Close") {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }
                 }
                
             }

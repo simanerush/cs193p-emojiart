@@ -17,6 +17,8 @@
 		2382F0F2278D139800701644 /* PaletteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382F0F1278D139800701644 /* PaletteStore.swift */; };
 		23D7CA7B2793C148009459F3 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7CA792793C148009459F3 /* UtilityExtensions.swift */; };
 		23D7CA7C2793C148009459F3 /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7CA7A2793C148009459F3 /* UtilityViews.swift */; };
+		23D7CA7E27950A75009459F3 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7CA7D27950A75009459F3 /* Camera.swift */; };
+		23D7CA802795163D009459F3 /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7CA7F2795163D009459F3 /* PhotoLibrary.swift */; };
 		23E92AD3278FA0B00040AE25 /* PaletteChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92AD2278FA0B00040AE25 /* PaletteChooser.swift */; };
 		23E92AD9278FABD50040AE25 /* PaletteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92AD8278FABD50040AE25 /* PaletteEditor.swift */; };
 		23E92ADB278FB93F0040AE25 /* PaletteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E92ADA278FB93F0040AE25 /* PaletteManager.swift */; };
@@ -35,6 +37,8 @@
 		23D7CA782793B668009459F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		23D7CA792793C148009459F3 /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		23D7CA7A2793C148009459F3 /* UtilityViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
+		23D7CA7D27950A75009459F3 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		23D7CA7F2795163D009459F3 /* PhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
 		23E92AD2278FA0B00040AE25 /* PaletteChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteChooser.swift; sourceTree = "<group>"; };
 		23E92AD8278FABD50040AE25 /* PaletteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteEditor.swift; sourceTree = "<group>"; };
 		23E92ADA278FB93F0040AE25 /* PaletteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteManager.swift; sourceTree = SOURCE_ROOT; };
@@ -74,8 +78,10 @@
 				23E92AD2278FA0B00040AE25 /* PaletteChooser.swift */,
 				23E92AD8278FABD50040AE25 /* PaletteEditor.swift */,
 				2382F0F1278D139800701644 /* PaletteStore.swift */,
+				23D7CA7F2795163D009459F3 /* PhotoLibrary.swift */,
 				23712FDE27894DBD00BE45ED /* EmojiArtApp.swift */,
 				23712FE027894DBD00BE45ED /* EmojiArtDocumentView.swift */,
+				23D7CA7D27950A75009459F3 /* Camera.swift */,
 				23712FEC27894E3100BE45ED /* EmojiArtModel.swift */,
 				23712FF0278956D800BE45ED /* EmojiArtDocument.swift */,
 				23D7CA792793C148009459F3 /* UtilityExtensions.swift */,
@@ -167,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2382F0F2278D139800701644 /* PaletteStore.swift in Sources */,
+				23D7CA802795163D009459F3 /* PhotoLibrary.swift in Sources */,
 				23E92ADB278FB93F0040AE25 /* PaletteManager.swift in Sources */,
 				23712FE127894DBD00BE45ED /* EmojiArtDocumentView.swift in Sources */,
 				23D7CA7C2793C148009459F3 /* UtilityViews.swift in Sources */,
@@ -174,6 +181,7 @@
 				23712FDF27894DBD00BE45ED /* EmojiArtApp.swift in Sources */,
 				23712FF1278956D800BE45ED /* EmojiArtDocument.swift in Sources */,
 				23712FED27894E3100BE45ED /* EmojiArtModel.swift in Sources */,
+				23D7CA7E27950A75009459F3 /* Camera.swift in Sources */,
 				23712FEF278955CD00BE45ED /* EmojiArtModel.Background.swift in Sources */,
 				23D7CA7B2793C148009459F3 /* UtilityExtensions.swift in Sources */,
 				23E92AD3278FA0B00040AE25 /* PaletteChooser.swift in Sources */,
